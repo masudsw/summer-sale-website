@@ -2,7 +2,7 @@ const cards=document.getElementsByClassName('card');
 console.log(cards);
 let total=0;
 let index=1;
-let totalPrice;
+let totalPrice=0;
 for(let card of cards){
     card.addEventListener('click',function(){
         let h3=card.querySelector('h3');
@@ -14,7 +14,6 @@ for(let card of cards){
         const p=document.createElement('p');
         p.innerText=index + '. ' + item;
         index++;
-        console.log(index);
         titleContainer.appendChild(p);
         total=total+price;
         totalPrice= document.getElementById('totalPrice');
@@ -46,3 +45,9 @@ applyButton.addEventListener('click',function(){
 
 
 
+document.getElementById('btn-purchase').addEventListener('click',function(){
+    if(totalPrice===0)
+     alert('please select an item to buy!')
+    else
+    alert('Congratulations!!');
+})
